@@ -1,0 +1,31 @@
+.footer-container {
+    text-align: center;
+    padding: 20px 0;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 4px rgba(207, 207, 207, 0.1);
+}
+
+.footer-p {
+    color: #f6f7f8;
+}
+
+.footer-content {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    /* color: #467fbd; */
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,18 @@
+.search-cont {
+    /* background-color: pink; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.search-inp {
+    padding: 10px 15px 10px 15px;
+    margin-top: 24px;
+    width: 50vw;
+    outline: none;
+    border-radius: 25px;
+    border: 5px solid rgb(155, 18, 155);
+}

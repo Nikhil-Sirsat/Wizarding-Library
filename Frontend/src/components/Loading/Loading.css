@@ -1,0 +1,39 @@
+.loading-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hallows {
+    animation: spin 2s linear infinite, glow 1.5s ease-in-out infinite alternate;
+    transform-origin: center center;
+}
+
+.hallows img {
+    height: 40px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+
+    /* 0% {
+        filter: drop-shadow(0 0 5px rgb(255, 255, 255)) drop-shadow(0 0 20px rgb(255, 255, 255));
+    } */
+
+    0% {
+        filter: drop-shadow(0 0 5px rgb(255, 2, 2)) drop-shadow(0 0 20px rgb(255, 2, 2));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 15px rgb(155, 18, 155)) drop-shadow(0 0 40px rgb(155, 18, 155));
+    }
+}

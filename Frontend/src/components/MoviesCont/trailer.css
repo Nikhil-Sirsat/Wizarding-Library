@@ -1,0 +1,16 @@
+.trailerCont {
+    height: 92vh;
+    width: 100vw;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+    .trailerCont {
+        height: 30vh;
+    }
+}
