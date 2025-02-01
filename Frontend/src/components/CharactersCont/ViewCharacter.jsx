@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import unknown from '../../assets/unknown-final-Comp.jpg'
 import Loading from '../Loading/Loading';
 import Error from '../../ErrorHandeling/Error.jsx';
-import axios from 'axios';
+import axiosInstance from '../../axiosInstance.jsx';
 import '../CommonView.css';
 
 export default function () {
@@ -16,7 +16,7 @@ export default function () {
     useEffect(() => {
         const getChars = async () => {
             try {
-                const response = await axios.get('/api/auth/getChars');
+                const response = await axiosInstance.get('/api/auth/getChars');
                 const CharData = response.data
                 const foundChar = CharData.find((char) => char.id == id);
                 setCharacter(foundChar)

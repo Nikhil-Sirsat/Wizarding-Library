@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
+import axiosInstance from '../../axiosInstance.jsx';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext.jsx';
 
@@ -25,13 +26,13 @@ const Edit = () => {
         e.preventDefault();
         try {
 
-            const passwordCheck = await axios.post('/api/auth/check-password', {
+            const passwordCheck = await axiosInstance.post('/api/auth/check-password', {
                 userId: user._id,
                 password: formData.password
             });
             if (passwordCheck.data.valid) {
                 try {
-                    await axios.put(`/api/auth/edit/${user._id}`, {
+                    await axiosInstance.put(`/api/auth/edit/${user._id}`, {
                         user: {
                             name: formData.name,
                             email: formData.email

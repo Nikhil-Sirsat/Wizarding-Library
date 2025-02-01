@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext.jsx';
+import axiosInstance from '../../axiosInstance.jsx';
 
 const SignUp = () => {
     const [formData, setFormData] = useState({ name: '', email: '', password: '' });
@@ -17,7 +17,7 @@ const SignUp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('/api/auth/SignUp', formData);
+            await axiosInstance.post('/api/auth/SignUp', formData);
             const success = await login(formData.email, formData.password);
             if (success) {
                 navigate('/Home');

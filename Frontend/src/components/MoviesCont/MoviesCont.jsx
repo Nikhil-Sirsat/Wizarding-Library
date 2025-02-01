@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import AllMovie from './AllMovies.jsx';
 import Loading from '../Loading/Loading.jsx';
 import Error from '../../ErrorHandeling/Error.jsx';
-import axios from 'axios';
+import axiosInstance from '../../axiosInstance.jsx';
 import SearchMovies from './SearchMovie.jsx';
 
 export default function MoviesCont() {
@@ -13,7 +13,7 @@ export default function MoviesCont() {
     useEffect(() => {
         const getMovies = async () => {
             try {
-                const response = await axios.get('/api/auth/getMovies');
+                const response = await axiosInstance.get('/api/auth/getMovies');
                 // console.log(response.data);
                 setMovie(response.data);
             } catch (error) {
@@ -38,7 +38,7 @@ export default function MoviesCont() {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', width: '100vw', marginTop: '30px' }}>
                 <hr style={{ width: '30vw' }}></hr> <p><b>All Movies</b></p> <hr style={{ width: '30vw' }}></hr>
             </div>
-            
+
             <ul>
                 {movie.map((item, idx) => (
                     <li key={idx}>

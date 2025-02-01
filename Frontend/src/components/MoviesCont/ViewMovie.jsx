@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading.jsx';
 import Error from '../../ErrorHandeling/Error.jsx';
 import MovieTrailer from './trailer.jsx';
-import axios from 'axios';
+import axiosInstance from '../../axiosInstance.jsx';
 
 function MovieDetail() {
     const { id } = useParams();
@@ -16,7 +16,7 @@ function MovieDetail() {
     useEffect(() => {
         const getMovies = async () => {
             try {
-                const response = await axios.get('/api/auth/getMovies');
+                const response = await axiosInstance.get('/api/auth/getMovies');
                 const movieData = response.data
                 const foundMovie = movieData.find((movie) => movie.id == id);
                 setMovie(foundMovie);

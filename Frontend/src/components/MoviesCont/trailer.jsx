@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../axiosInstance.jsx';
 import './trailer.css';
 import Loading from '../Loading/Loading.jsx';
 
@@ -8,7 +8,7 @@ const MovieTrailer = ({ title }) => {
 
     const fetchTrailer = async () => {
         try {
-            const response = await axios.get('/api/auth/youtube-trailer', {
+            const response = await axiosInstance.get('/api/auth/youtube-trailer', {
                 params: { title },
             });
             setTrailer(response.data);

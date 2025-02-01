@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext.jsx';
-import axios from 'axios';
 import Loading from '../components/Loading/Loading.jsx';
+import axiosInstance from '../axiosInstance.jsx';
 
 const ProtectedRoute = ({ children }) => {
     const { user, setUser } = useContext(AuthContext);
@@ -11,7 +11,7 @@ const ProtectedRoute = ({ children }) => {
     useEffect(() => {
         const checkUser = async () => {
             try {
-                const response = await axios.get('/api/auth/protected', { withCredentials: true });
+                const response = await axiosInstance.get(`/api/auth/protected`);
                 setUser(response.data.user);
             } catch (error) {
                 setUser(null);

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import AllBooks from './AllBooks.jsx'
 import Loading from "../Loading/Loading.jsx";
 import Error from "../../ErrorHandeling/Error.jsx";
-import axios from "axios";
+import axiosInstance from '../../axiosInstance.jsx';
 import SearchBooks from "./SearchBook.jsx";
 
 export default function () {
@@ -14,7 +14,7 @@ export default function () {
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const response = await axios.get('/api/auth/getBooks');
+                const response = await axiosInstance.get('/api/auth/getBooks');
                 // console.log(response.data);
                 setBooks(response.data);
             } catch (error) {

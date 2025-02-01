@@ -17,7 +17,6 @@ import User from './components/User/showUser.jsx';
 import SignUp from './components/User/SignUp.jsx';
 import Login from './components/User/Login.jsx';
 import Edit from './components/User/edit.jsx';
-import Test from './components/Test.jsx';
 
 import ProtectedRoute from './ProtectedRoutes/ProtectedRoutes.jsx';
 import { AuthProvider } from './Context/AuthContext.jsx';
@@ -78,10 +77,6 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login />
-      },
-      {
-        path: '/Test',
-        element: <Test />
       },
     ]
   },

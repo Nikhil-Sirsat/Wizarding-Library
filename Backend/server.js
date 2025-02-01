@@ -10,9 +10,19 @@ const MongoStore = require('connect-mongo');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const authRoutes = require('./routes/routes.js');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+// cors middleware
+app.use(cors({
+    origin: ["https://wizarding-library.onrender.com"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 200,
+}));
 
 // Middleware
 app.use(express.json());

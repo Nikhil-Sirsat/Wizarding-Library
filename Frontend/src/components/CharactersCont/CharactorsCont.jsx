@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import AllCharacters from "./AllCharacters.jsx";
-import axios from "axios";
+import axiosInstance from "../../axiosInstance.jsx";
 import Loading from "../Loading/Loading.jsx";
 import Error from '../../ErrorHandeling/Error.jsx';
 import SearchChars from "./SearchChar.jsx";
@@ -14,7 +14,7 @@ export default function () {
     useEffect(() => {
         const getChars = async () => {
             try {
-                const response = await axios.get('/api/auth/getChars');
+                const response = await axiosInstance.get('/api/auth/getChars');
                 setCharacters(response.data);
             } catch (error) {
                 console.error('Error fetching Characters :', error);

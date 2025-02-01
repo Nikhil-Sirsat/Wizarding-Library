@@ -2,6 +2,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import axiosInstance from '../../axiosInstance.jsx';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import Error from '../../ErrorHandeling/Error.jsx'
@@ -16,7 +17,7 @@ export default function () {
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const response = await axios.get('/api/auth/getBooks');
+                const response = await axiosInstance.get('/api/auth/getBooks');
                 const bookData = response.data;
                 const foundBook = bookData.find((book) => book.id == id);
                 setBook(foundBook);
