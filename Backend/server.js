@@ -17,11 +17,9 @@ const PORT = process.env.PORT || 4000;
 
 // cors middleware
 app.use(cors({
-    origin: ["https://wizarding-library.onrender.com"],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    origin: "https://wizarding-library.onrender.com",
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 200,
 }));
 
 // Middleware
@@ -31,9 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 // Session Setup
 const store = MongoStore.create({
     mongoUrl: process.env.Database_Url,
-    crypto: {
-        secret: process.env.express_session_key
-    },
+    crypto: { secret: process.env.express_session_key },
     touchAfter: 24 * 3600,
 });
 
@@ -49,7 +45,7 @@ app.use(session({
     cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: true,
         sameSite: "none",
     }
 }));
