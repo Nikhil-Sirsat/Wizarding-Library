@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 4000;
 
 // cors middleware
 app.use(cors({
-    origin: "*",
+    origin: "https://wizarding-library.onrender.com",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
 }));
