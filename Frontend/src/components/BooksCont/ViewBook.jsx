@@ -1,11 +1,10 @@
 
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import axiosInstance from '../../axiosInstance.jsx';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
-import Error from '../../ErrorHandeling/Error.jsx'
+import Error from '../../ErrorHandeling/Error.jsx';
 import '../CommonView.css';
 
 export default function () {

@@ -42,13 +42,14 @@ store.on("error", (err) => {
 });
 
 app.use(session({
-    store: store,
+    store,
     secret: process.env.express_session_key,
     resave: false,
     saveUninitialized: false,
     cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
         httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
         sameSite: "none",
     }
 }));
