@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 4000;
 
 // cors middleware
 app.use(cors({
-    origin: "https://wizarding-library.onrender.com",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
 }));
@@ -44,7 +44,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        httpOnly: true,
+        // httpOnly: true,
         secure: true,
         sameSite: "none",
     }
