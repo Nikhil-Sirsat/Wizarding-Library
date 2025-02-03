@@ -15,6 +15,8 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+app.set("trust proxy", 1);
+
 // cors middleware
 app.use(cors({
     origin: "https://wizarding-library.onrender.com",
