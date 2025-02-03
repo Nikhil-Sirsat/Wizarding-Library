@@ -11,7 +11,9 @@ const MovieTrailer = ({ title }) => {
             const response = await axiosInstance.get('/api/auth/youtube-trailer', {
                 params: { title },
             });
-            setTrailer(response.data);
+            if (response.data) {
+                setTrailer(response.data);
+            }
         } catch (error) {
             console.error('Error fetching trailer', error);
         }
