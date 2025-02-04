@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const axios = require('axios');
 
-const youtubeKey = process.env.youtube_api_key;
+const youtubeKey = process.env.youtube_api_key || AIzaSyCiU43zS2ur9Sf2FFWEuAC7S_gyxulMAEQ;
 const youtubeURL = process.env.youtube_api_url;
 const moviesURL = process.env.movies_api_url;
 const CharUrl = process.env.chars_api_url;
@@ -15,6 +15,7 @@ module.exports.youtubeAPI = async (req, res) => {
     }
 
     console.log("This is YouTube API KEY : ", youtubeKey);
+    console.log("Render Environment Variables:", process.env);
 
     try {
         const response = await axios.get(youtubeURL, {
