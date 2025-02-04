@@ -14,9 +14,6 @@ module.exports.youtubeAPI = async (req, res) => {
         return res.status(400).json({ error: 'Title is required' });
     }
 
-    console.log("This is YouTube API KEY : ", youtubeKey);
-    console.log("Render Environment Variables:", process.env);
-
     try {
         const response = await axios.get(youtubeURL, {
             params: {
@@ -26,8 +23,6 @@ module.exports.youtubeAPI = async (req, res) => {
                 type: 'video',
             },
         });
-
-        console.log("YouTube API Response:", response.data);
 
         const trailer = response.data.items[0];
         res.json(trailer);
