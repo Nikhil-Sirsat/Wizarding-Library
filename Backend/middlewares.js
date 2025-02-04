@@ -3,10 +3,6 @@ const { userSchema } = require('./Schema.js');
 
 //authentication
 module.exports.auth = (req, res, next) => {
-    console.log("Session in Protected Route:", req.session);
-    if (req.session?.user) {
-        console.log("req.session.user : ", req.session.user);
-    }
     if (req.isAuthenticated()) {
         return next();
     }

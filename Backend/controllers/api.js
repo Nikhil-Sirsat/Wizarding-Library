@@ -14,6 +14,8 @@ module.exports.youtubeAPI = async (req, res) => {
         return res.status(400).json({ error: 'Title is required' });
     }
 
+    console.log("This is YouTube API KEY : ", youtubeKey);
+
     try {
         const response = await axios.get(youtubeURL, {
             params: {
@@ -24,10 +26,12 @@ module.exports.youtubeAPI = async (req, res) => {
             },
         });
 
+        console.log("YouTube API Response:", response.data);
+
         const trailer = response.data.items[0];
         res.json(trailer);
     } catch (error) {
-        console.error(error);
+        console.error("YouTube API Error:", error.response?.data || error.message);
         res.status(500).json({ error: 'Failed to fetch trailer' });
     }
 }

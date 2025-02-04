@@ -13,7 +13,7 @@ module.exports.postSignUp = async (req, res) => {
 
 module.exports.login = (req, res) => {
     // req.session.user = req.user;
-    console.log("Session Set: ", req.session); // Log session content
+    // console.log("Session Set: ", req.session); // Log session content
     res.cookie("connect.sid", req.sessionID, {
         httpOnly: true,
         sameSite: "None",
