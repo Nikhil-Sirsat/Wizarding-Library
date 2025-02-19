@@ -8,6 +8,7 @@ const SignUp = () => {
     const [message, setMessage] = useState('');
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -15,6 +16,7 @@ const SignUp = () => {
     };
 
     const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
         try {
             await axiosInstance.post('/api/auth/SignUp', formData);
@@ -25,6 +27,7 @@ const SignUp = () => {
                 setMessage('error in registration');
             }
         } catch (error) {
+            setLoading(false);
             console.log(error.response.data.error);
             setMessage(error.response.data.error);
         }
@@ -76,7 +79,7 @@ const SignUp = () => {
                                         required
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-primary w-100">Sign Up</button>
+                                <button type="submit" className="btn btn-primary w-100">{(loading) ? "loading" : "Sign Up"}</button>
                             </form>
                             {message && <div className="mt-3 alert alert-danger">{message}</div>}
                         </div>

@@ -6,6 +6,7 @@ const AuthContext = createContext();
 
 function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // check User
     useEffect(() => {
@@ -13,9 +14,11 @@ function AuthProvider({ children }) {
             try {
                 const response = await axiosInstance.get('/api/auth/protected');
                 setUser(response.data.user);
+                setLoading(false);
                 console.log("User set in useEffect:", response.data.user);
             } catch (err) {
                 setUser(null);
+                setLoading(false);
                 console.log("Error in useEffect:", err.response ? err.response.data : err.message);
             }
         };
@@ -44,7 +47,7 @@ function AuthProvider({ children }) {
         }
     };
     return (
-        <AuthContext.Provider value={{ user, setUser, login, logout }}>
+        <AuthContext.Provider value={{ user, setUser, login, logout, loading }}>
             {children}
         </AuthContext.Provider>
     );

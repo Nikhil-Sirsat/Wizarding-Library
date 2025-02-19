@@ -15,6 +15,7 @@ const Edit = () => {
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -22,6 +23,7 @@ const Edit = () => {
     };
 
     const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
         try {
 
@@ -43,6 +45,7 @@ const Edit = () => {
                         navigate(`/user`);
                     } else {
                         setMessage('error in Login');
+                        setLoading(false);
                     }
                 } catch (error) {
                     console.log(`Error in Updating : ${error.message}`);
@@ -50,9 +53,11 @@ const Edit = () => {
                 }
             } else {
                 setMessage('Incorrect Password');
+                setLoading(false);
             }
         } catch (error) {
             setMessage("Incorrect Password");
+            setLoading(false);
         }
     };
 
@@ -105,7 +110,9 @@ const Edit = () => {
                                         required
                                     />
                                 </div>
-                                <button type="submit" className="btn btn-primary w-100">Update</button>
+                                <button type="submit" className="btn btn-primary w-100">
+                                    {loading ? "Loading ... " : "Update"}
+                                </button>
                             </form>
                             {message && <div className="mt-3 alert alert-danger">{message}</div>}
                         </div>

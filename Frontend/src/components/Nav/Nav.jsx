@@ -6,7 +6,8 @@ import Logo from '../../assets/loading2.png';
 import { AuthContext } from '../../Context/AuthContext';
 
 export default function Nav() {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -35,15 +36,21 @@ export default function Nav() {
           </ul>
           <div className="navbar-nav">
             {
-              (!user) ? (
-                <>
-                  <div className="nav-item"> <NavLink to='/SignUp' className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}> SignUp </NavLink> </div>
-                  <div className="nav-item"> <NavLink to='/login' className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}> Login </NavLink> </div>
-                </>
-              ) :
-                (
-                  <div className="nav-item"> <NavLink to={`/user`} className={({ isActive }) => "nav-link user" + (isActive ? " active" : "")}> <i className="fa-solid fa-user"></i> </NavLink> </div>
-                )
+              (loading) ? (
+                <div className="spinner-border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                (!user) ? (
+                  <>
+                    <div className="nav-item"> <NavLink to='/SignUp' className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}> SignUp </NavLink> </div>
+                    <div className="nav-item"> <NavLink to='/login' className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}> Login </NavLink> </div>
+                  </>
+                ) :
+                  (
+                    <div className="nav-item"> <NavLink to={`/user`} className={({ isActive }) => "nav-link user" + (isActive ? " active" : "")}> <i className="fa-solid fa-user"></i> </NavLink> </div>
+                  )
+              )
             }
           </div>
         </div>
