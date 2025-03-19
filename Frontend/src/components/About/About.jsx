@@ -33,7 +33,7 @@ export default function About() {
             </ul>
             <h2>Get in Touch</h2>
             <p>
-                If you have any questions, feedback, or suggestions, feel free to reach out to me. You can connect with me on <a target="_blank" href="https://www.linkedin.com/in/nikhil-sirsat-b49bb128a/">LinkedIn</a> or check out my other projects on <a target="_blank" href="https://github.com/theAppleceo">GitHub</a>.
+                If you have any questions, feedback, or suggestions, feel free to reach out to me. You can connect with me on <a target="_blank" href="https://www.linkedin.com/in/nikhil-sirsat-b49bb128a/">LinkedIn</a> or check out my other projects on <a target="_blank" href="https://github.com/Nikhil-Sirsat">GitHub</a>.
             </p>
             <p>Thank you for visiting The Wizarding Library! Enjoy exploring the magical world of Harry Potter.</p>
         </div>
